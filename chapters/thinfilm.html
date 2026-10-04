@@ -3,8 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <title>박막 광학과 TMM · OpticsBook</title>
 <meta name="description" content="1/4 파장 반사 방지막, 특성 행렬과 어드미턴스 궤적, 다층 전달 행렬법(TMM), 브래그 미러의 저지 대역, 30~40층 IR 컷 필터와 각도 청색 이동, BSI 실리콘 위 반사 방지 스택 최적화, 실리콘 안 깊이별 흡수, 비결맞음 두꺼운 층, 공정 두께 공차, 박막 컬러 필터를 시뮬레이터로 배운다.">
+<link rel="canonical" href="https://opticsbook.euiyun.com/chapters/thinfilm.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="OpticsBook">
+<meta property="og:title" content="박막 광학과 TMM · OpticsBook">
+<meta property="og:description" content="1/4 파장 반사 방지막, 특성 행렬과 어드미턴스 궤적, 다층 전달 행렬법(TMM), 브래그 미러의 저지 대역, 30~40층 IR 컷 필터와 각도 청색 이동, BSI 실리콘 위 반사 방지 스택 최적화, 실리콘 안 깊이별 흡수, 비결맞음 두꺼운 층, 공정 두께 공차, 박막 컬러 필터를 시뮬레이터로 배운다.">
+<meta property="og:url" content="https://opticsbook.euiyun.com/chapters/thinfilm.html">
+<meta property="og:image" content="https://opticsbook.euiyun.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"박막 광학과 TMM","name":"박막 광학과 TMM · OpticsBook","url":"https://opticsbook.euiyun.com/chapters/thinfilm.html","mainEntityOfPage":"https://opticsbook.euiyun.com/chapters/thinfilm.html","inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"interactive textbook chapter","position":11,"image":"https://opticsbook.euiyun.com/og.png","dateModified":"2026-10-04","isPartOf":{"@type":"Book","@id":"https://opticsbook.euiyun.com/#book","name":"OpticsBook — 이미지 센서를 위한 인터랙티브 광학 교과서","url":"https://opticsbook.euiyun.com/"},"publisher":{"@type":"Organization","name":"OpticsBook","url":"https://opticsbook.euiyun.com/"},"description":"1/4 파장 반사 방지막, 특성 행렬과 어드미턴스 궤적, 다층 전달 행렬법(TMM), 브래그 미러의 저지 대역, 30~40층 IR 컷 필터와 각도 청색 이동, BSI 실리콘 위 반사 방지 스택 최적화, 실리콘 안 깊이별 흡수, 비결맞음 두꺼운 층, 공정 두께 공차, 박막 컬러 필터를 시뮬레이터로 배운다."},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"OpticsBook","item":"https://opticsbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"11 박막 광학과 TMM","item":"https://opticsbook.euiyun.com/chapters/thinfilm.html"}]}]}</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
