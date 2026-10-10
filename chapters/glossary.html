@@ -319,7 +319,7 @@
     { ko: "2차원 푸리에 변환", en: "2D Fourier transform", abbr: "FT", def: "영상이나 장을 공간 주파수 성분의 합으로 분해하는 변환. 렌즈 결상, 회절, MTF를 한 언어로 묶어 준다.", ch: "fourier" },
     { ko: "고속 푸리에 변환", en: "Fast Fourier transform", abbr: "FFT", def: "N점 이산 푸리에 변환을 O(N log N)으로 계산하는 알고리즘. 동공→PSF, 각스펙트럼 전파, RCWA 유전율 행렬 계산에 쓰이며, 샘플 간격과 영역 크기가 주파수 분해능을 정한다.", ch: "fourier", cat: "num" },
     { ko: "렌즈의 푸리에 변환 성질", en: "Fourier-transforming property of a lens", abbr: "", def: "렌즈 앞 초점면의 장은 뒤 초점면에서 푸리에 변환이 되며, 공간 주파수 ν는 위치 x = λfν에 대응한다.", ch: "fourier" },
-    { ko: "4f 시스템", en: "4f system", abbr: "", def: "초점 거리 f인 렌즈 두 개를 4f 간격으로 놓은 배치. 가운데 푸리에 면에 마스크를 두어 공간 필터링을 한다.", ch: "fourier" },
+    { ko: "4f 시스템", en: "4f system", abbr: "", def: "초점 거리 f인 렌즈 두 개를 2f 간격으로 두고, 첫 렌즈 앞쪽 초점면부터 둘째 렌즈 뒤쪽 초점면까지 전체 길이가 4f인 배치. 두 렌즈 사이 가운데 푸리에 면에 마스크를 두어 공간 필터링을 한다.", ch: "fourier" },
     { ko: "공간 필터링", en: "Spatial filtering", abbr: "", def: "푸리에 면에서 특정 공간 주파수를 막거나 위상을 바꿔 영상을 가공하는 방법. 위상차 현미경, 핀홀 빔 정화가 예다.", ch: "fourier" },
     { ko: "동공 함수", en: "Pupil function", abbr: "P", def: "출사동에서의 진폭 투과와 위상 P(x, y) = A(x, y)·e^(i2πW(x, y)/λ). 결맞는 전달 함수이자 PSF 계산의 입력이다.", ch: "fourier" },
     { ko: "점 확산 함수", en: "Point spread function", abbr: "PSF", def: "한 점 광원의 상 세기 분포. 결맞지 않는 결상에서 PSF = |FT{P}|²이며, 영상은 물체와 PSF의 컨볼루션이다.", ch: "fourier" },

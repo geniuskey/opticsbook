@@ -184,7 +184,7 @@
   <!-- =============================================================== 3 -->
   <section id="fourf">
     <h2>4f 시스템과 공간 필터링</h2>
-    <p>렌즈 두 개를 초점거리만큼 떼어 직렬로 놓으면 총 길이 \(4f\)인 <span class="term">4f 시스템</span><span class="en">(4f Correlator)</span>이 된다. 첫 렌즈가 푸리에 변환을, 둘째 렌즈가 다시 푸리에 변환을 한다. 푸리에 변환을 두 번 하면 좌표가 뒤집힌 원래 함수 \(g(-x,-y)\)가 되므로, 출력면에는 배율 −1의 도립상이 생긴다. 핵심은 가운데 <b>푸리에면</b>(Fourier Plane)에 마스크 \(M(u,v)\)를 놓으면 스펙트럼에 직접 곱셈을 할 수 있다는 점이다.</p>
+    <p>입력면을 첫 렌즈 앞 초점면에, 출력면을 둘째 렌즈 뒤 초점면에 두고 두 렌즈를 \(2f\) 간격으로 놓으면 전체 길이 \(4f\)인 <span class="term">4f 시스템</span><span class="en">(4f Correlator)</span>이 된다. 첫 렌즈가 두 렌즈 사이 가운데 푸리에면에서 푸리에 변환을 만들고, 둘째 렌즈가 출력면에 다시 푸리에 변환을 한다. 푸리에 변환을 두 번 하면 좌표가 뒤집힌 원래 함수 \(g(-x,-y)\)가 되므로, 출력면에는 배율 −1의 도립상이 생긴다. 핵심은 가운데 <b>푸리에면</b>(Fourier Plane)에 마스크 \(M(u,v)\)를 놓으면 스펙트럼에 직접 곱셈을 할 수 있다는 점이다.</p>
     <div class="formula">$$U_{\text{out}}(x,y) = \mathcal F^{-1}\!\left\{G(\nu_x,\nu_y)\,H(\nu_x,\nu_y)\right\},\qquad H(\nu_x,\nu_y)=M(\lambda f\nu_x,\,\lambda f\nu_y)$$
       <div class="where">\(H\)는 결맞는 전달 함수(Coherent Transfer Function). 출력은 입력과 \(h=\mathcal F^{-1}\{H\}\)의 컨볼루션이다. 출력 좌표 부호(도립)는 생략했다.</div>
     </div>

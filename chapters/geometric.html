@@ -258,7 +258,7 @@
     <h2>전반사와 임계각</h2>
     <p>빛이 굴절률이 큰 쪽에서 작은 쪽으로(\(n_1 &gt; n_2\)) 갈 때, 굴절각은 입사각보다 크다. 입사각이 <span class="term">임계각</span><span class="en">(Critical Angle)</span> \(\theta_c\)에 이르면 굴절각이 90°가 되고, 그 이상에서는 굴절 광선이 존재할 수 없어 에너지 전부가 반사된다. 이것이 <span class="term">전반사</span><span class="en">(Total Internal Reflection, TIR)</span>다.</p>
     <div class="formula">$$\sin\theta_c = \frac{n_2}{n_1},\qquad \text{탈출 원뿔 비율 } \eta_{\text{esc}} = \frac{1-\cos\theta_c}{2}$$
-      <div class="where">\(\eta_\text{esc}\): 매질 1 안에서 등방적으로 방출된(또는 산란된) 빛 중, 한 평면 경계면을 통해 빠져나갈 수 있는 입체각 비율(프레넬 반사 무시). 전반사 상태에서도 경계면 너머로 파장 정도 깊이의 <b>소산파</b><span class="en">(Evanescent Wave)</span>가 스며 나온다. 그래서 얇은 저굴절층 너머에 고굴절 물질이 있으면 빛이 터널링한다(FTIR, <a href="fresnel.html">10장</a>).</div>
+      <div class="where">\(\eta_\text{esc}\): 매질 1 안에서 등방적으로 방출된(또는 산란된) 빛 중, 한 평면 경계면을 통해 빠져나갈 수 있는 방향의 비율. 분모는 전체 구면 입체각 \(4\pi\)이며, 프레넬 반사는 무시한다. 따라서 탈출 원뿔은 전체 구면의 \((1-\cos\theta_c)/2\), 그 경계면 쪽 반구만을 분모로 하면 \(1-\cos\theta_c=2\eta_\text{esc}\)이다. 전반사 상태에서도 경계면 너머로 파장 정도 깊이의 <b>소산파</b><span class="en">(Evanescent Wave)</span>가 스며 나온다. 그래서 얇은 저굴절층 너머에 고굴절 물질이 있으면 빛이 터널링한다(FTIR, <a href="fresnel.html">10장</a>).</div>
     </div>
 
     <figure class="diagram fig-lg">
@@ -285,7 +285,7 @@
         <text x="520" y="82" class="t-mono">Si/공기 : θc = 14°</text>
         <text x="520" y="104" class="t-mono">SiO₂/공기 : θc = 43°</text>
       </svg>
-      <figcaption><b>그림 2-4.</b> 고굴절 매질 안의 점광원에서 나온 빛 중 탈출 원뿔(반각 θ<sub>c</sub>) 안의 빛만 경계면을 통과한다. Si/SiO₂에서는 반구의 3.3%에 불과하다. 실리콘 안에서 산란되거나 비스듬히 반사된 빛이 쉽게 갇히는 이유이고, NIR 광 트래핑이 가능한 이유다.</figcaption>
+      <figcaption><b>그림 2-4.</b> 고굴절 매질 안의 점광원에서 나온 빛 중 탈출 원뿔(반각 θ<sub>c</sub>) 안의 빛만 경계면을 통과한다. Si/SiO₂에서는 전체 구면 방향의 3.3%에 해당하며, 경계면 쪽 반구만 분모로 하면 6.6%다. 실리콘 안에서 산란되거나 비스듬히 반사된 빛이 쉽게 갇히는 이유이고, NIR 광 트래핑이 가능한 이유다.</figcaption>
     </figure>
 
     <div class="table-wrap">
