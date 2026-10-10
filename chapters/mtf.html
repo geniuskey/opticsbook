@@ -111,7 +111,7 @@
         <div class="stat"><span class="k">측정한 출력 대비 M</span><span class="v" id="o-ct-m">—</span></div>
         <div class="stat"><span class="k">줄무늬 이동 Δx</span><span class="v" id="o-ct-dx">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① '회절 한계'에서 블러 크기(= F/#, λ = 550 nm)를 1.8로 두고 ν를 올리면 \(1/(\lambda N)\approx1010\) lp/mm에서 대비가 완전히 사라진다. ② '디포커스'(착란원 지름 c, µm)에서 ν를 \(1.22/c\) 위로 올리면 출력 줄무늬가 입력과 반대 위상이 된다 — PTF = 180°, 대비 반전. ③ '비대칭'은 PTF가 0이 아니어서 줄무늬가 옆으로 밀리고, 밀리는 양이 주파수마다 다르다(위상 왜곡). ④ 사각파 입력의 출력 대비는 같은 ν의 MTF보다 높다(CTF > MTF). 위 패널의 출력은 실제 수치 컨볼루션 결과이고, 아래 곡선은 LSF의 FFT다.</div>
+      <div class="sim-note">해볼 것: ① '회절 한계'에서 블러 크기(= F/#, λ = 550 nm)를 1.8로 두고 ν를 올리면 \(1/(\lambda N)\approx1010\) lp/mm에서 대비가 완전히 사라진다. ② '디포커스'(착란원 지름 c, µm)에서 첫 영점 \(1.22/c\)를 지나 다음 영점 \(2.23/c\)에 이르기 전에는 출력 줄무늬가 입력과 반대 위상이 된다 — PTF = 180°, 대비 반전. 그 뒤에는 OTF의 부호가 영점마다 바뀌므로 계속 반전 상태인 것은 아니다(주파수 cycles/µm, c는 µm; lp/mm로는 1000배). ③ '비대칭'은 PTF가 0이 아니어서 줄무늬가 옆으로 밀리고, 밀리는 양이 주파수마다 다르다(위상 왜곡). ④ 사각파의 대비(CTF)는 기본 주파수뿐 아니라 홀수 고조파의 전달에도 달려 있어 MTF와 다른 지표다. 회절 한계 모형의 통과 대역에서는 보통 CTF가 더 높다. 위 패널은 사각파 경계를 각 적분 셀 안에서 면적 평균한 수치 컨볼루션이고, 아래 곡선은 LSF의 푸리에 변환이다. 유한한 적분 창 때문에 차단 대역에도 작은 수치 잔차가 남을 수 있다.</div>
     </div>
   </section>
 
@@ -821,6 +821,13 @@
       for (let i = 0; i < S.xs.length; i++) { const a = -TAU * nu * S.xs[i]; re += S.ls[i] * Math.cos(a); im += S.ls[i] * Math.sin(a); }
       return [re, im];
     }
+    // Average the discontinuous square wave over each LSF quadrature cell.
+    // Point sampling aliases its high harmonics into a false contrast floor.
+    function squareAverage(x, nu) {
+      const integral = (z) => { const k = Math.floor(z); return k * 0.5 + Math.min(z - k, 0.5); };
+      const a = nu * (x - dx / 2) + 0.25, b = nu * (x + dx / 2) + 0.25;
+      return (integral(b) - integral(a)) / (nu * dx);
+    }
     function compute() {
       const S = buildLSF(), nuL = gF(), nu = nuL / 1000, sq = $("ct-sq").checked;
       const mtf = [], ptf = [];
@@ -838,7 +845,7 @@
         const x = (k / np) * xr;
         inp.push([x, sig(x)]);
         let s = 0;
-        for (let i = 0; i < S.xs.length; i++) s += S.ls[i] * sig(x - S.xs[i]);
+        for (let i = 0; i < S.xs.length; i++) s += S.ls[i] * (sq ? squareAverage(x - S.xs[i], nu) : sig(x - S.xs[i]));
         out.push([x, s]); mxo = Math.max(mxo, s); mno = Math.min(mno, s);
       }
       const Mout = (mxo - mno) / (mxo + mno);
